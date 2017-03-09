@@ -5,5 +5,11 @@
 - If it does, it returns both the Unix timestamp and the natural language form of that date.
 - If it does not contain a date or a Unix timestamp, it returns null for those properties.
 
-##### Check out my other projects
-##### [Free Code Camp](https://www.freecodecamp.com/andydlindsay) [Github](https://github.com/andydlindsay) [CodePen](https://codepen.io/andydlindsay/)
+##### Check out my other projects:
+##### [Free Code Camp](https://www.freecodecamp.com/andydlindsay) 
+##### [Github](https://github.com/andydlindsay) 
+##### [CodePen](https://codepen.io/andydlindsay/)
+
+##### Or find me on social media:
+##### [LinkedIn](https://www.linkedin.com/in/andy-lindsay-17a9762b/)
+##### [Facebook](https://www.facebook.com/andydlindsay)
