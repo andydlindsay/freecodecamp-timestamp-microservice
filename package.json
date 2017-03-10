@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/andydlindsay/freecodecamp-timestamp-microservice#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "lodash.isempty": "^4.4.0",
+    "moment": "^2.17.1",
+    "pug": "^2.0.0-beta11",
+    "strftime": "^0.10.0"
   }
 }
