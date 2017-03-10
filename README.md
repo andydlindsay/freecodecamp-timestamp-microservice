@@ -5,6 +5,14 @@
 - If it does, it returns both the Unix timestamp and the natural language form of that date.
 - If it does not contain a date or a Unix timestamp, it returns null for those properties.
 
+#### App running on [heroku](https://andydlindsay-ts-microservice.herokuapp.com)
+
+#### Example usage:
+#### `https://andydlindsay-ts-microservice.herokuapp.com/February%2014,%201981`
+#### `https://andydlindsay-ts-microservice.herokuapp.com/350956800`
+#### Example output:
+#### `{ "unix": 350956800, "natural": "February 14, 1981" }`
+
 ##### Check out my other projects:
 [Free Code Camp](https://www.freecodecamp.com/andydlindsay)  
 [Github](https://github.com/andydlindsay)  
