@@ -1,28 +1,48 @@
-var express = require('express');
-var moment = require('moment');
+const express = require('express'),
+      datejs = require('datejs'),
+      morgan = require('morgan'),
+      path = require('path'),
+      favicon = require('serve-favicon'),
+      cors = require('cors');
 
-var app = express();
+// require dotenv to populate environment variables
+require('dotenv').config();
 
-app.use(express.static(__dirname + '/templates'));
+// load config
+const config = require('config');
 
-app.get('/:time', function(req, res) {
-    var returnObj = {
-        unix: null,
-        natural: null
-    };
-    var timestamp = req.params.time;
-    var m = moment(isNaN(timestamp) ? timestamp : +timestamp);
-    if (m.isValid()) {
-        returnObj.unix = m.unix();
-        returnObj.natural = m.format('MMMM D, YYYY');
-    }
-    res.send(returnObj);
+// create express app
+const app = express();
+
+// favicon
+app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
+
+// port number
+const port = process.env.PORT || 8080;
+
+// route variables
+const api = require('./routes/api');
+
+// use morgan logger except during testing
+if (config.util.getEnv('NODE_ENV') !== 'test') {
+    app.use(morgan('combined'));
+}
+
+// cors middleware
+app.use(cors());
+
+// set static folder
+app.use(express.static(path.join(__dirname, 'client')));
+
+// routes
+app.use('/', api);
+
+// catchall redirect
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/index.html'));
 });
 
-app.get('*', function (req, res) {
-    res.render('index');
-});
-
-app.listen(process.env.PORT, function () {
-    console.log('app listening on port ' + process.env.PORT);
+// server start
+const server = app.listen(port, () => {
+    console.info('Server listening on port %s\n', port);
 });
